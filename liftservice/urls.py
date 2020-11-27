@@ -19,9 +19,6 @@ from customer_interface import views
 
 #comment is made
 #second comment is been made
-#this comment is made by nikhil
-# hello hello hello 
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
