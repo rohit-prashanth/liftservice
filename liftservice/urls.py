@@ -21,6 +21,7 @@ from customer_interface import views
 #second comment is been made
 #this is rohit's comment
 #from local branch to main
+#new branch
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
