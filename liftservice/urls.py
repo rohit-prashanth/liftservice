@@ -20,7 +20,7 @@ from customer_interface import views
 #comment is made
 #second comment is been made
 #this is rohit's comment
-
+#from local branch to main
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
