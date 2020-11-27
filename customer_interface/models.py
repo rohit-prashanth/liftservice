@@ -12,7 +12,7 @@ class Cust_detail(models.Model):
     cust_id = models.CharField(max_length=10)
     fname = models.CharField(max_length=30)
     lname = models.CharField(max_length=30)
-    phone_no = models.IntegerField(max_length=10)
+    phone_no = models.CharField(max_length=10)
     username = models.EmailField(max_length=40)
 
     def __str__(self):
@@ -27,7 +27,7 @@ class Cust_addres(models.Model):
     area = models.CharField(max_length=30)
     city = models.CharField(max_length=30)
     state = models.CharField(max_length=30)
-    pincode = models.IntegerField(max_length=6)
+    pincode = models.CharField(max_length=6)
 
     def __str__(self):
         return self.title
@@ -35,7 +35,7 @@ class Cust_addres(models.Model):
 
 class Cust_lift(models.Model):
     cust_id = models.CharField(max_length=10)
-    count = models.IntegerField(max_length=3)
+    count = models.CharField(max_length=3)
     lift_id = models.CharField(max_length=10)
     type = models.CharField(max_length=1)
 
@@ -61,3 +61,6 @@ class Cust_subscription(models.Model):
 
     def __str__(self):
         return self.title
+
+class Media(models.Model):
+    image = models.ImageField(upload_to='customer_interface/images')
