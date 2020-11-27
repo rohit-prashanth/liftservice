@@ -18,6 +18,7 @@ from django.urls import path
 from customer_interface import views
 
 #comment is made
+#second comment is been made
 
 urlpatterns = [
     path('admin/', admin.site.urls),
