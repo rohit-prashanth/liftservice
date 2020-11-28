@@ -1,22 +1,29 @@
 from django.db import models
 
 class Cust_login(models.Model):
-    username = models.CharField(max_length=30)
-    password = models.CharField(max_length=15)
-    cust_id = models.CharField(max_length=10)
+    Username = models.CharField(max_length=30)
+    Password = models.CharField(max_length=15)
+    Cust_id = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.title
+        return self.Username
 
 class Cust_detail(models.Model):
-    cust_id = models.CharField(max_length=10)
-    fname = models.CharField(max_length=30)
-    lname = models.CharField(max_length=30)
-    phone_no = models.CharField(max_length=10)
-    username = models.EmailField(max_length=40)
+    Cust_id = models.CharField(max_length=10,blank=True)
+    Firstname = models.CharField(max_length=30,blank=True)
+    Lastname = models.CharField(max_length=30,blank=True)
+    Username = models.EmailField(max_length=40,blank=True)
+    Password = models.CharField(max_length=15,blank=True)
+    Password_Again = models.CharField(max_length=15,blank=True)
+    Address = models.CharField(max_length=100,blank=True)
+    Address_2 = models.CharField(max_length=100,blank=True)
+    Phone_no = models.CharField(max_length=10,blank=True)
+    City = models.CharField(max_length=15,blank=True)
+    State = models.CharField(max_length=15,blank=True)
+    Zip =  models.CharField(max_length=15,blank=True)
 
     def __str__(self):
-        return self.title
+        return self.Firstname
 
 
 class Cust_addres(models.Model):
