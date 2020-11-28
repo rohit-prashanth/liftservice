@@ -15,8 +15,16 @@
     <img src="{% static 'customer_interface/django_image.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
     LiftUp
   </a>
-  <a href="{% url 'customer_interface:signup' %}"><button type="button" class="btn btn-dark">SignUp</button></a>
-  <a href="{% url 'customer_interface:login' %}"><button type="button" class="btn btn-dark">Login</button></a>
+  <ul>
+    <tr>
+      <a href="{% url 'customer_interface:signup' %}"><button type="button" class="btn btn-dark">SignUp</button></a>
+    </tr>
+    <tr>
+      <a href="{% url 'customer_interface:login' %}"><button type="button" class="btn btn-dark">Login</button></a>
+    </tr>
+  </ul>
+
+
 </nav>
   </body>
 </html>
