@@ -10,90 +10,90 @@
 
     <div class="container">
       <div class="jumbotron">
-        <div class="mx-auto" style="width: 400px;">
+        <div class="mx-auto" style="width: 600px;">
           <label for="signupform"> <h1>SignUp</h1> </label>
-          <form method="post" id="signupform">
+          <hr class="my-3">
+          <form method="POST" id="signupform">
             {% csrf_token %}
-
-
-              <div class="row row-cols-2">
-                <div class="col">First name: {{form.Firstname}}</div>
-                <div class="col">Last name: {{form.Lastname}}</div>
-                <div class="col">Email: {{form.Username}}</div>
-                <div class="col">Password: {{form.Password}}</div>
-                <div class="col">Password Again: {{form.Password_Again}}</div>
-                <div class="col">Address: {{form.Address}}</div>
-                <div class="col">Phone.no: {{form.Phone_no}}</div>
-                <div class="col">Address 2: {{form.Address_2}}</div>
-                <div class="col">City: {{form.City}}</div>
-                <div class="col">State: {{form.State}}</div><br>
-                <div class="col">Zip: {{form.Zip}}</div>
+            {{ error }}
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="firstname">First name:</label>
+                  <input type="text" name="Firstname" class="form-control" id="firstname" placeholder="Firstname">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="lastname">Last name:</label>
+                  <input type="text" name="Lastname" class="form-control" id="lastname" placeholder="Lastname">
+                </div>
               </div>
-              <br>
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" name="Username" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="Phone_no">Mobile no:</label>
+                  <input type="tel" name="Phone_no" class="form-control" id="Phone_no" placeholder="+91">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="password">Password:</label>
+                  <input type="password" name="Password" class="form-control" id="password" placeholder="password">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="password_again">Password Again:</label>
+                  <input type="password" name="Password_Again" class="form-control" id="password_again" placeholder="Password">
+                </div>
+              </div>
+              <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+              <label>Adress Deatils:</label>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="house_no">H No:</label>
+                  <input type="text" name="house_no" class="form-control" id="house_no">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="building_name">Building:</label>
+                  <input type="text" name="building_name" class="form-control" id="building_name">
+                </div>
+              </div>
 
 
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="street">Street:</label>
+                  <input type="text" name="street" class="form-control" id="street">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="area">Area:</label>
+                  <input type="text" name="area" class="form-control" id="area">
+                </div>
+              </div>
 
 
-            <!--
-        <div class="form-row">
-          <div class="form-group col-md-6">
-              <label>First name</label>
-              {{form.Firstname}}
-            </div>
-            <div class="form-group col-md-6">
-            <label>Last name</label>
-            {{form.Lastname}}
-          </div>
-          </div>
-      <div class="form-group">
-          <label>Email</label>
-          {{form.Username}}
-          </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label>Password</label>
-          {{form.Password}}
-        </div>
-        <div class="form-group col-md-6">
-          <label>Password Again</label>
-          {{form.Password_Again}}
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label>Address</label>
-          {{form.Address}}
-        </div>
-        <div class="form-group col-md-6">
-          <label>Phone.no</label>
-          {{form.Phone_no}}
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Address 2</label>
-        {{form.Address_2}}
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label>City</label>
-          {{form.City}}
-        </div>
-        <div class="form-group col-md-4">
-          <label>State</label>
-          {{form.State}}
-        </div>
-        <div class="form-group col-md-2">
-          <label >Zip</label>
-          {{form.Zip}}
-        </div>
-      </div>
-    -->
+              <div class="form-row">
+                <div class="form-group col-md-5">
+                  <label for="inputCity">City</label>
+                  <input type="text" name="City" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputState">State</label>
+                  <select id="inputState" name="State" class="form-control">
+                    <option selected>Telangana</option>
+                    <option>Andhra Pradesh</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" name="Zip" class="form-control" id="inputZip">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
 
 
-
-    </form>
         </div>
       </div>
     </div>
