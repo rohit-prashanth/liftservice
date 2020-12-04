@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% load static %}
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+      <img src="{% static 'customer_interface/django_image.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      <a class="navbar-brand" href="#">
+        <h3>LiftUp</h3>
+      </a>
+      <ul>
+        <tr>
+          <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            Logged In as <b>{{user.username}}</b>
+            <button type="submit" class="btn btn-primary">Logout</button>
+          </form>
+
+        </tr>
+
+      </ul>
+      </nav>
+
+
+  </body>
+</html>
