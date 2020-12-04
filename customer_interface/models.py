@@ -1,32 +1,24 @@
 from django.db import models
-class Cust_login(models.Model):
-    login_Username = models.CharField(max_length=30,blank=True)
-    login_Password = models.CharField(max_length=15,blank=True)
-
-
-    def __str__(self):
-        return self.login_Username
 
 class Cust_detail(models.Model):
-    Firstname = models.CharField(max_length=30,blank=True)
-    Lastname = models.CharField(max_length=30,blank=True)
-    signup_Username = models.EmailField(max_length=40,blank=True)
-    signup_Password = models.CharField(max_length=15,blank=True)
+    Firstname = models.CharField(max_length=30)
+    Lastname = models.CharField(max_length=30)
+    signup_Username = models.EmailField(max_length=40)
+    signup_Password = models.CharField(max_length=15)
 
     def __str__(self):
         return self.Firstname
 
 
 class Cust_addres(models.Model):
-    Phone_no = models.CharField(max_length=10,blank=True)
-    house_no = models.CharField(max_length=50,blank=True)
-    building_name = models.CharField(max_length=50,blank=True)
-    street = models.CharField(max_length=60,blank=True)
-    area = models.CharField(max_length=30,blank=True)
-    city = models.CharField(max_length=30,blank=True)
-    state = models.CharField(max_length=30,blank=True)
-    pincode = models.CharField(max_length=6,blank=True)
-
+    Phone_no = models.CharField(max_length=10)
+    house_no = models.CharField(max_length=50)
+    building_name = models.CharField(max_length=50)
+    street = models.CharField(max_length=60)
+    area = models.CharField(max_length=30)
+    city = models.CharField(max_length=30)
+    state = models.CharField(max_length=30)
+    pincode = models.CharField(max_length=6)
 """
     def __str__(self):
         return self.title"""
@@ -37,17 +29,17 @@ class Cust_lift(models.Model):
     count = models.CharField(max_length=3,blank=True)
     lift_id = models.CharField(max_length=10,blank=True)
     type = models.CharField(max_length=1,blank=True)
-"""
+
     def __str__(self):
-        return self.title"""
+        return self.title
 
 
 class Cust_purchase(models.Model):
     #cust_id = models.CharField(max_length=10,blank=True)
     invoice = models.CharField(max_length=15,blank=True)
-"""
+
     def __str__(self):
-        return self.title"""
+        return self.title
 
 
 class Cust_subscription(models.Model):
@@ -57,12 +49,9 @@ class Cust_subscription(models.Model):
     valid_from = models.DateField(auto_now_add=True,blank=True)
     valid_to = models.DateField(auto_now_add=False,blank=True)
     invoice_no = models.CharField(max_length=15,blank=True)
-"""
+
     def __str__(self):
-        return self.title"""
+        return self.title
 
 class Media(models.Model):
     image = models.ImageField(upload_to='customer_interface/images')
-
-class uthuthiclass(models.Model):
-    uthuthivar = models.CharField(max_length=15,blank=True)
