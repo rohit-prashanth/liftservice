@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404,reverse
 from customer_interface import models
 from .forms import  Cust_address_details, cust_login
 from django.contrib.auth import login, logout, authenticate
@@ -19,7 +19,7 @@ def loginuser(request):
             return render(request, 'customer_interface/login.html', {'error':'Username and Password does not exist'})
         else:
             login(request,user)
-            return render(request, "customer_interface/user.html")
+            return redirect(user(request))
 
 def logoutuser(request):
     if request.method == 'POST':
