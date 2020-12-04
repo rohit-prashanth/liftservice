@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Cust_detail(models.Model):
     Firstname = models.CharField(max_length=30)
@@ -11,10 +12,11 @@ class Cust_detail(models.Model):
 
 
 class Cust_addres(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     Phone_no = models.CharField(max_length=10)
     house_no = models.CharField(max_length=50)
     building_name = models.CharField(max_length=50)
-    street = models.CharField(max_length=60)
+    street = models.CharField(max_length=50)
     area = models.CharField(max_length=30)
     city = models.CharField(max_length=30)
     state = models.CharField(max_length=30)

@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-
+from django.urls import reverse
 
 def home(request):
     return render(request, "customer_interface/home.html")
@@ -35,7 +35,8 @@ def signupuser(request):
             try:
                 user = User.objects.create_user(request.POST['Username'],password=request.POST['Password'],first_name=request.POST['Firstname'],last_name=request.POST['Lastname'],email=request.POST['Email'])
                 user.save()
-                return render(request, 'customer_interface/login.html')
+                login(request, user)
+                return redirect('customer_interface:details')
             except IntegrityError:
                 return render(request, 'customer_interface/signup.html',{"error":"This username has already been taken, Please choose a unique username."})
         else:
@@ -44,3 +45,24 @@ def signupuser(request):
 
 def user(request):
     return render(request, "customer_interface/user.html")
+
+
+def details(request):
+    if request.method == 'GET':
+        return render(request,'customer_interface/details.html')
+    else:
+        form= Cust_address_details(request.POST)
+        if form.is_valid():
+            form.Phone_no = request.POST.get('Phone_no')
+            form.house_no = request.POST.get('house_no')
+            form.building_name = request.POST.get('building_name')
+            form.street = request.POST.get('street')
+            form.area = request.POST.get('area')
+            form.city  = request.POST.get('city')
+            form.state = request.POST.get('state')
+            form.pincode = request.POST.get('pincode')
+            form.save()
+            return redirect('customer_interface:welcome')
+
+def welcome(request):
+    return render(request,'customer_interface/welcome.html')
