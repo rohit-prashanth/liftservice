@@ -13,9 +13,11 @@
     <div class="container">
       <div class="jumbotron">
         <div class="mx-auto" style="width: 800px;">
+          Logged In as <b>{{user.username}}</b>
+          <br>
           <label for="detailsform"> <h1>Details</h1> </label>
           <hr class="my-3">
-          <form method="POST" id="Cust_detail">
+          <form method="POST">
             {% csrf_token %}
             <h3>{{ error }}</h3>
                 <div class="form-group">
@@ -51,7 +53,7 @@
                   <input type="text" name="pincode" class="form-control" id="pincode" placeholder="500000">
                 </div>
 
-              <button type="submit" class="btn btn-primary">Next</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 
 

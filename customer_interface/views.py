@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404,reverse
 from customer_interface import models
-from .forms import  Cust_address_details, cust_login
+from .forms import  Cust_address_details
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -19,12 +19,12 @@ def loginuser(request):
             return render(request, 'customer_interface/login.html', {'error':'Username and Password does not exist'})
         else:
             login(request,user)
-            return redirect(user(request))
+            return redirect("customer_interface:userpage")
 
 def logoutuser(request):
     if request.method == 'POST':
         logout(request)
-        return render(request, "customer_interface/user.html")
+        return redirect("customer_interface:home")
 
 
 def signupuser(request):
@@ -43,15 +43,21 @@ def signupuser(request):
             return render(request, 'customer_interface/signup.html',{'error': 'Passwords did not match'})
 
 
-def user(request):
-    return render(request, "customer_interface/user.html")
+def userpage(request):
+    return render(request, "customer_interface/userpage.html")
 
+
+    """form = Cust_address_details.objects.filter(user=request.user, datecompleted__isnull=True)
+    if request.username in form.username:
+        return render(request, "customer_interface/user.html")
+    else:
+        return redirect('customer_interface:details')"""
 
 def details(request):
     if request.method == 'GET':
-        return render(request,'customer_interface/details.html')
+        return render(request,"customer_interface/details.html")
     else:
-        form= Cust_address_details(request.POST)
+        form = Cust_address_details(request.POST)
         if form.is_valid():
             form.Phone_no = request.POST.get('Phone_no')
             form.house_no = request.POST.get('house_no')
@@ -62,7 +68,7 @@ def details(request):
             form.state = request.POST.get('state')
             form.pincode = request.POST.get('pincode')
             form.save()
-            return redirect('customer_interface:welcome')
+            return render(request, "customer_interface/userpage.html")
 
 def welcome(request):
     return render(request,'customer_interface/welcome.html')
