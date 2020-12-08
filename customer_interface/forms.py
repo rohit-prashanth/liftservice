@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cust_detail, Cust_addres
+from .models import Cust_addres
 
 
 class Cust_address_details(forms.ModelForm):
