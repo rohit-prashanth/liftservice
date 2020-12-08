@@ -1,17 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Cust_detail(models.Model):
-    Firstname = models.CharField(max_length=30)
-    Lastname = models.CharField(max_length=30)
-    signup_Username = models.EmailField(max_length=40)
-    signup_Password = models.CharField(max_length=15)
-
-    def __str__(self):
-        return self.Firstname
-
 
 class Cust_addres(models.Model):
+<<<<<<< HEAD
     Phone_no = models.CharField(max_length=10)
     house_no = models.CharField(max_length=50)
     building_name = models.CharField(max_length=50)
@@ -21,10 +13,22 @@ class Cust_addres(models.Model):
     state = models.CharField(max_length=30)
     pincode = models.CharField(max_length=6)
     username=models.ForeignKey(Cust_detail,related_name='Users', on_delete=models.CASCADE,null=True, blank=True)
+=======
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    Phone_no = models.CharField(max_length=20)
+    house_no = models.CharField(max_length=255)
+    building_name = models.CharField(max_length=255)
+    street = models.CharField(max_length=255)
+    area = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    pincode = models.CharField(max_length=255)
+
+>>>>>>> af71ed3b0dd9aa7a5ecad7c0c69677aad0a53613
 """
     def __str__(self):
-        return self.title"""
-
+        return self.user
+"""
 
 class Cust_lift(models.Model):
     #cust_id = models.CharField(max_length=10,blank=True)

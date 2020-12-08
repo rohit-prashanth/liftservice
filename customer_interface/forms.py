@@ -1,14 +1,5 @@
 from django import forms
-from .models import Cust_detail, Cust_addres
-
-
-class cust_login(forms.Form):
-    Username = forms.CharField()
-    Firstname = forms.CharField()
-    Lastname = forms.CharField()
-    Email_adress = forms.EmailField(widget=forms.EmailInput)
-    Password = forms.CharField(widget=forms.PasswordInput)
-    Password_Again = forms.CharField(widget=forms.PasswordInput)
+from .models import Cust_addres
 
 
 class Cust_address_details(forms.ModelForm):
