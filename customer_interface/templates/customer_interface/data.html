@@ -13,17 +13,15 @@
     <div class="container">
       <div class="jumbotron">
         <div class="mx-auto" style="width: 800px;">
-          Logged In as <b>{{user.username}}</b>
           <br>
           <label for="detailsform"> <h1>Details</h1> </label>
           <hr class="my-3">
           <form method="POST">
             {% csrf_token %}
             <h3>{{ error }}</h3>
-                <div class="form-group">
-                  <label for="user">Username:</label>
-                  <input type="text" name="user" class="form-control" id="user" value="{{ user.username }}">
-                </div>
+            {{ form.as_p }}
+
+            <!--
                 <div class="form-group">
                   <label for="phone_no">Phone_no:</label>
                   <input type="tel" name="Phone_no" class="form-control" id="phone_no" placeholder="Phone_no">
@@ -56,7 +54,7 @@
                   <label for="pincode">pincode:</label>
                   <input type="text" name="pincode" class="form-control" id="pincode" placeholder="500000">
                 </div>
-
+    -->
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 
