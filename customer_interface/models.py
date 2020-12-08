@@ -12,7 +12,6 @@ class Cust_detail(models.Model):
 
 
 class Cust_addres(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     Phone_no = models.CharField(max_length=10)
     house_no = models.CharField(max_length=50)
     building_name = models.CharField(max_length=50)
@@ -21,6 +20,7 @@ class Cust_addres(models.Model):
     city = models.CharField(max_length=30)
     state = models.CharField(max_length=30)
     pincode = models.CharField(max_length=6)
+    username=models.ForeignKey(Cust_detail,related_name='Users', on_delete=models.CASCADE,null=True, blank=True)
 """
     def __str__(self):
         return self.title"""
