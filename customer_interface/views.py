@@ -20,7 +20,7 @@ def loginuser(request):
             return render(request, 'customer_interface/login.html', {'error':'Username and Password does not exist'})
         else:
             login(request,user)
-            return redirect("customer_interface:details")
+            return redirect("customer_interface:userpage")
 
 def logoutuser(request):
     if request.method == 'POST':

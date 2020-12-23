@@ -8,13 +8,13 @@
     {% load static %}
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light">
-      <img src="{% static 'customer_interface/django_image.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      <img src="{% static 'Work_force/django_image.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
       <a class="navbar-brand" href="#">
         <h3>LiftUp</h3>
       </a>
       <ul>
         <tr>
-          <form action="{% url 'customer_interface:home' %}" method="POST">
+          <form action="{% url 'Work_force:home' %}" method="POST">
             {% csrf_token %}
             Logged In as <b>{{user.username}}</b>
             <button type="submit" class="btn btn-primary">Logout</button>
@@ -27,6 +27,6 @@
 
     <h2>Welcome, Hope you are having a wonderful day</h2>
 
-    <a href="customer_interface/welcome.html" target="custom">This is a link</a>
+    <a href="Work_force/welcome.html" target="custom">This is a link</a>
   </body>
 </html>

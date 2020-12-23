@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from customer_interface import views
+from Admin_panel import views
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -25,7 +26,9 @@ urlpatterns = [
     #path('login/', include('customer_interface.urls')),
     #path('signup/', include('customer_interface.urls')),
     path('customer_interface/', include('customer_interface.urls')),
-    
+    path('Admin_panel/', include('Admin_panel.urls')),
+    path('Work_force/', include('Work_force.urls')),
+
 
 
 
