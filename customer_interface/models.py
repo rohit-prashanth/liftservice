@@ -13,10 +13,10 @@ class Cust_addres(models.Model):
     state = models.CharField(max_length=255)
     pincode = models.CharField(max_length=255)
 
-"""
+
     def __str__(self):
-        return self.user
-"""
+        return self.user.username
+
 
 class Cust_lift(models.Model):
     #cust_id = models.CharField(max_length=10,blank=True)

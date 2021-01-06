@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    {% load static %}
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+      {% csrf_token %}
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'Admin_panel/django_image.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        LiftUp
+      </a>
+      <ul>
+        <tr>
+          <a href="{% url 'Admin_panel:signupuser' %}"><button type="button" class="btn btn-dark">SignUp</button></a>
+        </tr>
+        <tr>
+          <a href="{% url 'Admin_panel:loginuser' %}"><button type="button" class="btn btn-dark">Login</button></a>
+        </tr>
+      </ul>
+      </nav>
+
+      {% block content %}
+      {% endblock %}
+
+
+
+  </body>
+</html>

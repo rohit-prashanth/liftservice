@@ -11,7 +11,4 @@ urlpatterns = [
     path('user/', views.userpage, name='userpage'),
     path('details/', views.details, name='details'),
 
-
-
 ]
-    
