@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404,reverse
 from customer_interface import models
 from .forms import  Cust_address_details
+from .models import Cust_addres
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -45,7 +46,8 @@ def signupuser(request):
 
 
 def userpage(request):
-    return render(request, "customer_interface/userpage.html")
+    details = Cust_addres.objects.filter(user = request.user)
+    return render(request, "customer_interface/userpage.html",{'details':details})
 
 
 def details(request):
